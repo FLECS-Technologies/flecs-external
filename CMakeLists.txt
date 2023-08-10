@@ -14,85 +14,88 @@
 
 project(external)
 
-# cpr
-add_library(external.curl INTERFACE)
-target_link_libraries(external.curl INTERFACE
-    curl
-    external.ssl
-    external.crypto
-)
+get_filename_component(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../ ABSOLUTE)
+if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
+    # cpr
+    add_library(external.curl INTERFACE)
+    target_link_libraries(external.curl INTERFACE
+        curl
+        external.ssl
+        external.crypto
+    )
 
-add_library(external.cpr INTERFACE)
-target_link_libraries(external.cpr INTERFACE
-    cpr
-    $<TARGET_PROPERTY:external.curl,INTERFACE_LINK_LIBRARIES>
-    $<TARGET_PROPERTY:external.zlib,INTERFACE_LINK_LIBRARIES>
-)
+    add_library(external.cpr INTERFACE)
+    target_link_libraries(external.cpr INTERFACE
+        cpr
+        $<TARGET_PROPERTY:external.curl,INTERFACE_LINK_LIBRARIES>
+        $<TARGET_PROPERTY:external.zlib,INTERFACE_LINK_LIBRARIES>
+    )
 
-# gtest
-add_library(external.gmock_main INTERFACE)
-target_link_libraries(external.gmock_main INTERFACE
-    gmock_main
-)
-add_library(external.gmock INTERFACE)
-target_link_libraries(external.gmock INTERFACE
-    gmock
-)
-add_library(external.gtest_main INTERFACE)
-target_link_libraries(external.gtest_main INTERFACE
-    gtest_main
-)
-add_library(external.gtest INTERFACE)
-target_link_libraries(external.gtest INTERFACE
-    gtest
-)
+    # gtest
+    add_library(external.gmock_main INTERFACE)
+    target_link_libraries(external.gmock_main INTERFACE
+        gmock_main
+    )
+    add_library(external.gmock INTERFACE)
+    target_link_libraries(external.gmock INTERFACE
+        gmock
+    )
+    add_library(external.gtest_main INTERFACE)
+    target_link_libraries(external.gtest_main INTERFACE
+        gtest_main
+    )
+    add_library(external.gtest INTERFACE)
+    target_link_libraries(external.gtest INTERFACE
+        gtest
+    )
 
-# libarchive
-add_library(external.libarchive INTERFACE)
-target_link_libraries(external.libarchive INTERFACE
-    archive
-    $<TARGET_PROPERTY:external.zlib,INTERFACE_LINK_LIBRARIES>
-    $<TARGET_PROPERTY:external.crypto,INTERFACE_LINK_LIBRARIES>
-)
+    # libarchive
+    add_library(external.libarchive INTERFACE)
+    target_link_libraries(external.libarchive INTERFACE
+        archive
+        $<TARGET_PROPERTY:external.zlib,INTERFACE_LINK_LIBRARIES>
+        $<TARGET_PROPERTY:external.crypto,INTERFACE_LINK_LIBRARIES>
+    )
 
-# libmosquitto
-add_library(external.mosquitto INTERFACE)
-target_link_libraries(external.mosquitto INTERFACE
-    mosquitto_static
-    $<TARGET_PROPERTY:external.ssl,INTERFACE_LINK_LIBRARIES>
-    $<TARGET_PROPERTY:external.crypto,INTERFACE_LINK_LIBRARIES>
-)
+    # libmosquitto
+    add_library(external.mosquitto INTERFACE)
+    target_link_libraries(external.mosquitto INTERFACE
+        mosquitto_static
+        $<TARGET_PROPERTY:external.ssl,INTERFACE_LINK_LIBRARIES>
+        $<TARGET_PROPERTY:external.crypto,INTERFACE_LINK_LIBRARIES>
+    )
 
-# libusb
-add_library(external.libusb INTERFACE)
-target_link_libraries(external.libusb INTERFACE
-    usb-1.0
-)
+    # libusb
+    add_library(external.libusb INTERFACE)
+    target_link_libraries(external.libusb INTERFACE
+        usb-1.0
+    )
 
-# OpenSSL
-add_library(external.crypto INTERFACE)
-target_link_libraries(external.crypto INTERFACE
-    crypto
-)
-add_library(external.ssl INTERFACE)
-target_link_libraries(external.ssl INTERFACE
-    ssl
-)
+    # OpenSSL
+    add_library(external.crypto INTERFACE)
+    target_link_libraries(external.crypto INTERFACE
+        crypto
+    )
+    add_library(external.ssl INTERFACE)
+    target_link_libraries(external.ssl INTERFACE
+        ssl
+    )
 
-# yaml-cpp
-add_library(external.yaml-cpp INTERFACE)
-target_link_libraries(external.yaml-cpp INTERFACE
-    yaml-cpp
-)
+    # yaml-cpp
+    add_library(external.yaml-cpp INTERFACE)
+    target_link_libraries(external.yaml-cpp INTERFACE
+        yaml-cpp
+    )
 
-# zenoh-c
-add_library(external.zenoh-c INTERFACE)
-target_link_libraries(external.zenoh-c INTERFACE
-    zenohc
-)
+    # zenoh-c
+    add_library(external.zenoh-c INTERFACE)
+    target_link_libraries(external.zenoh-c INTERFACE
+        zenohc
+    )
 
-# zlib
-add_library(external.zlib INTERFACE)
-target_link_libraries(external.zlib INTERFACE
-    z
-)
+    # zlib
+    add_library(external.zlib INTERFACE)
+    target_link_libraries(external.zlib INTERFACE
+        z
+    )
+endif()
