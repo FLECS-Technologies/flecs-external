@@ -82,7 +82,7 @@ Copyright:  1995-1998 Eric A. Young, Tim J. Hudson, 1998-2023 The OpenSSL Projec
 
 ================================================================================
 Project:    yaml-cpp
-Version:    v0.7.0
+Version:    v0.8.0
 License:    MIT License
 URL:        https://github.com/jbeder/yaml-cpp
 Copyright:  Jesse Beder
