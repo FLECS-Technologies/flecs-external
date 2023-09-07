@@ -16,6 +16,12 @@ project(external)
 
 get_filename_component(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../ ABSOLUTE)
 if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
+    # base64pp
+    add_library(external.base64pp INTERFACE)
+    target_link_libraries(external.base64pp INTERFACE
+        base64pp
+    )
+
     # cpr
     add_library(external.curl INTERFACE)
     target_link_libraries(external.curl INTERFACE
