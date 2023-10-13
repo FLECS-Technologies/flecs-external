@@ -51,8 +51,5 @@ if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     find_package(yaml-cpp REQUIRED)
 
     # zenoh-c
-    add_library(external.zenoh-c INTERFACE)
-    target_link_libraries(external.zenoh-c INTERFACE
-        zenohc
-    )
+    find_package(zenohc 0.10.0 REQUIRED)
 endif()
