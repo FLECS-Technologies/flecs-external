@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-get_filename_component(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR} ABSOLUTE)
+get_filename_component(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../ ABSOLUTE)
 if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     # PkgConfig
-    find_package(PkgConfig REQUIRED)
+    find_package(PkgConfig REQUIRED GLOBAL)
 
     # cpr
-    find_package(cpr 1.10.4 REQUIRED)
+    find_package(cpr 1.10.4 REQUIRED GLOBAL)
     target_link_libraries(cpr::cpr INTERFACE
         CURL::libcurl
         OpenSSL::SSL
@@ -26,30 +26,36 @@ if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     )
 
     # gtest
-    find_package(GTest 1.14.0 REQUIRED)
+    find_package(GTest 1.14.0 REQUIRED GLOBAL)
 
     # json
-    find_package(nlohmann_json 3.11.2 REQUIRED)
+    find_package(nlohmann_json 3.11.2 REQUIRED GLOBAL)
 
     # libarchive
-    find_package(LibArchive 3.7.2 REQUIRED)
+    find_package(LibArchive 3.7.2 REQUIRED GLOBAL)
     target_link_libraries(LibArchive::LibArchive INTERFACE
         OpenSSL::SSL
         OpenSSL::Crypto
     )
 
     # libmosquitto
-    pkg_check_modules(Mosquitto REQUIRED IMPORTED_TARGET libmosquitto>=2.0.15)
+    pkg_check_modules(Mosquitto REQUIRED GLOBAL IMPORTED_TARGET libmosquitto>=2.0.15)
 
     # libusb
-    pkg_check_modules(libusb REQUIRED IMPORTED_TARGET libusb-1.0>=1.0.26)
+    pkg_check_modules(libusb REQUIRED GLOBAL IMPORTED_TARGET libusb-1.0>=1.0.26)
 
     # OpenSSL
-    find_package(OpenSSL 3.0 REQUIRED)
+    find_package(OpenSSL 3.0 REQUIRED GLOBAL)
 
     # yaml-cpp
-    find_package(yaml-cpp REQUIRED)
+    find_package(yaml-cpp REQUIRED GLOBAL)
 
     # zenoh-c
-    find_package(zenohc 0.10.0 REQUIRED)
+    find_package(zenohc 0.10.0 QUIET GLOBAL)
+    if (NOT zenohc_FOUND)
+        find_package(zenohc_debug 0.10.0 QUIET GLOBAL)
+        if (NOT zenohc_debug_FOUND)
+            find_package(zenohc 0.10.0 REQUIRED GLOBAL)
+        endif()
+    endif()
 endif()
