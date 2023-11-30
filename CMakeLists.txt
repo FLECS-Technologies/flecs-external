@@ -18,7 +18,7 @@ if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     find_package(PkgConfig REQUIRED GLOBAL)
 
     # cpr
-    find_package(cpr 1.10.4 REQUIRED GLOBAL)
+    find_package(cpr 1.10.5 REQUIRED GLOBAL)
     target_link_libraries(cpr::cpr INTERFACE
         CURL::libcurl
         OpenSSL::SSL
