@@ -3,7 +3,7 @@ conditions by their respective owners
 
 ================================================================================
 Project:    Boost
-Version:    v1.83.0
+Version:    v1.84.0
 License:    Boost Software License
 URL:        https://www.boost.org/
 ================================================================================
@@ -42,7 +42,7 @@ Copyright:  Tim Kientzle
 
 ================================================================================
 Project:    libcurl
-Version:    v8.4.0
+Version:    v8.5.0
 License:    MIT license derivative
 URL         https://github.com/curl/curl
 Copyright:  1996 - 2023, Daniel Stenberg, and many contributors
