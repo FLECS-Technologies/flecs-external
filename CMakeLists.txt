@@ -12,10 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+cmake_minimum_required(VERSION 3.22)
+
 get_filename_component(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../ ABSOLUTE)
 if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     # PkgConfig
     find_package(PkgConfig REQUIRED GLOBAL)
+
+    # Make sure pkg-config only finds packages for the target architecture
+    set(PKG_CONFIG_ARGN "--personality" "${MACHINE}")
 
     # cpr
     find_package(cpr 1.10.5 REQUIRED GLOBAL)
