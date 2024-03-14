@@ -42,6 +42,9 @@ if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
         OpenSSL::SSL
         OpenSSL::Crypto
     )
+    target_compile_definitions(LibArchive::LibArchive INTERFACE
+        -D_FILE_OFFSET_BITS=64
+    )
 
     # libmosquitto
     pkg_check_modules(Mosquitto REQUIRED GLOBAL IMPORTED_TARGET libmosquitto>=2.0.15)
