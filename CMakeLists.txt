@@ -22,6 +22,9 @@ if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     # Make sure pkg-config only finds packages for the target architecture
     set(PKG_CONFIG_ARGN "--personality" "${MACHINE}")
 
+    # Asio
+    pkg_check_modules(asio REQUIRED GLOBAL IMPORTED_TARGET asio>=1.28.0)
+
     # cpr
     find_package(cpr 1.10.5 REQUIRED GLOBAL)
     target_link_libraries(cpr::cpr INTERFACE
