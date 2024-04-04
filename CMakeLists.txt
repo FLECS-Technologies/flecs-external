@@ -18,16 +18,15 @@ get_filename_component(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../ ABSOLUTE)
 if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
 
-    # PkgConfig
+    # Configure PkgConfig, if present
     find_package(PkgConfig QUIET)
-
     if (PKG_CONFIG_FOUND)
         # Make sure pkg-config only finds packages for the target architecture
         set(PKG_CONFIG_ARGN "--personality" "${MACHINE}")
     endif()
 
     # Asio
-    pkg_check_modules(asio REQUIRED GLOBAL IMPORTED_TARGET asio>=1.28.0)
+    find_package(Asio 1.28.0 REQUIRED GLOBAL)
 
     # cpr
     find_package(cpr 1.10.5 REQUIRED GLOBAL)
