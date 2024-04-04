@@ -52,7 +52,7 @@ if(PKG_CONFIG_FOUND)
 endif()
 
 find_path(Libusb_INCLUDE_DIR
-  NAMES libusb.h
+  NAMES libusb-1.0/libusb.h
   PATHS ${PC_Libusb_INCLUDE_DIRS} ${Libusb_INCLUDE_HINT}
 )
 mark_as_advanced(Libusb_INCLUDE_DIR)
@@ -93,7 +93,7 @@ if(Libusb_FOUND)
     unset(libusb_api_version)
   endif()
 
-    if (NOT TARGET Libusb::Libusb)
+  if (NOT TARGET Libusb::Libusb)
     add_library(Libusb::Libusb UNKNOWN IMPORTED)
     set_target_properties(Libusb::Libusb PROPERTIES
       IMPORTED_LOCATION "${Libusb_LIBRARY}"
