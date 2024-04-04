@@ -56,7 +56,7 @@ if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     find_package(Mosquitto 2.0.15 REQUIRED GLOBAL)
 
     # libusb
-    pkg_check_modules(libusb REQUIRED GLOBAL IMPORTED_TARGET libusb-1.0>=1.0.26)
+    find_package(Libusb 1.0.26 REQUIRED GLOBAL)
 
     # OpenSSL
     find_package(OpenSSL 3.0 REQUIRED GLOBAL)
