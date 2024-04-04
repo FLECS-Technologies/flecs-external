@@ -12,15 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.24)
 
 get_filename_component(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../ ABSOLUTE)
 if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
-    # PkgConfig
-    find_package(PkgConfig REQUIRED GLOBAL)
+    list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
 
-    # Make sure pkg-config only finds packages for the target architecture
-    set(PKG_CONFIG_ARGN "--personality" "${MACHINE}")
+    # PkgConfig
+    find_package(PkgConfig QUIET)
+
+    if (PKG_CONFIG_FOUND)
+        # Make sure pkg-config only finds packages for the target architecture
+        set(PKG_CONFIG_ARGN "--personality" "${MACHINE}")
+    endif()
 
     # Asio
     pkg_check_modules(asio REQUIRED GLOBAL IMPORTED_TARGET asio>=1.28.0)
@@ -50,7 +54,7 @@ if (${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     )
 
     # libmosquitto
-    pkg_check_modules(Mosquitto REQUIRED GLOBAL IMPORTED_TARGET libmosquitto>=2.0.15)
+    find_package(Mosquitto 2.0.15 REQUIRED GLOBAL)
 
     # libusb
     pkg_check_modules(libusb REQUIRED GLOBAL IMPORTED_TARGET libusb-1.0>=1.0.26)
