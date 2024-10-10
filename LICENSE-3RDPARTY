@@ -98,7 +98,7 @@ Copyright:  Jesse Beder
 
 ================================================================================
 Project:    zenoh-c
-Version:    0.10.1-rc
+Version:    1.0.0.10
 License:    Apache License 2.0 and Eclipse Public License 2.0
 URL:        https://github.com/eclipse-zenoh/zenoh-c
 Copyright:  Eclipse Foundation
