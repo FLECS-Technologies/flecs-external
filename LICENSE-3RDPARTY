@@ -18,7 +18,7 @@ URL:        https://www.boost.org/
 
 ================================================================================
 Project:    cpr
-Version:    v1.10.5
+Version:    v1.11.0
 License:    MIT License
 URL:        https://github.com/libcpr/cpr
 Copyright:  2017-2021 Huu Nguyen, 2022 libcpr and many other contributors
@@ -42,7 +42,7 @@ Copyright:  2008, Google Inc.
 
 ================================================================================
 Project:    libarchive
-Version:    v3.7.4
+Version:    v3.7.7
 License:    New BSD License
 URL         https://github.com/libarchive/libarchive
 Copyright:  Tim Kientzle
@@ -50,7 +50,7 @@ Copyright:  Tim Kientzle
 
 ================================================================================
 Project:    libcurl
-Version:    v8.9.1
+Version:    v8.10.1
 License:    MIT license derivative
 URL         https://github.com/curl/curl
 Copyright:  1996 - 2023, Daniel Stenberg, and many contributors
@@ -58,7 +58,7 @@ Copyright:  1996 - 2023, Daniel Stenberg, and many contributors
 
 ================================================================================
 Project:    libmosquitto
-Version:    v2.0.18
+Version:    v2.0.20
 License:    Eclipse Public License 2.0 and Eclipse Distribution License 1.0
 URL:        https://github.com/eclipse/mosquitto
 Copyright:  Eclipse Mosquitto project
@@ -82,7 +82,7 @@ Copyright:  2013-2022 Niels Lohmann
 
 ================================================================================
 Project:    OpenSSL
-Version:    v3.3.1
+Version:    v3.4.0
 License:    Apache License Version 2.0
 URL:        https://www.openssl.org/
 Copyright:  1995-1998 Eric A. Young, Tim J. Hudson, 1998-2023 The OpenSSL Project
