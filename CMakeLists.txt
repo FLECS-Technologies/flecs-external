@@ -32,7 +32,7 @@ if(${ROOT_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
 
     # cpr
     if(FLECS_NEED_CPR)
-        find_package(cpr 1.11.0 REQUIRED GLOBAL)
+        find_package(cpr 1.11.1 REQUIRED GLOBAL)
         target_link_libraries(cpr::cpr INTERFACE
             CURL::libcurl
             OpenSSL::SSL
