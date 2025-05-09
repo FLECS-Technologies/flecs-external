@@ -3,6 +3,9 @@
   <a href="https://flecs.tech">https://flecs.tech</a> | <a href="mailto:info@flecs.tech">info@flecs.tech</a>
 </div>
 
+# Deprecation notice
+**With the full migration of FLECS version 4.0.0-snowhare to Rust, this repository is no longer required, nor is it actively maintained.**
+
 # Overview
 FLECS relies on multiple 3rd-party open-source components. This repository centralizes their copyright notices as well as CMake integration into dependent projects.
 
